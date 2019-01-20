@@ -8,7 +8,7 @@ namespace NsonsaKisala_Exercise3
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // Welcome statement
             Console.Clear();
@@ -27,7 +27,7 @@ namespace NsonsaKisala_Exercise3
             // Switch Statement for userSelect
             while (isValid)
             {
-                Menu();
+                PrintMenu();
                 string userSelect = Console.ReadLine().ToLower();
                 switch (userSelect)
                 {
@@ -36,15 +36,41 @@ namespace NsonsaKisala_Exercise3
                         Console.WriteLine("Students: \n");
 
                         // Display each student(key) in studentDict to the console
-                        foreach( KeyValuePair< string, double> kvp in studentDict)
+                        foreach(KeyValuePair<string, double> kvp in studentDict)
                         {
                             Console.WriteLine(kvp.Key);
                         }
+
+                        //Console.WriteLine("Type one of their names to see their classes:");
+                        //string nameInput = Console.ReadLine().ToLower();
+                        //bool studentMenuIsValid = true;
+                        //while (studentMenuIsValid)
+                        //{
+                        //    switch (nameInput)
+                        //    {
+                        //        case "michael scott":
+                        //            break;
+                        //        case "dwight schrute":
+                        //            break;
+                        //        case "jim halpert":
+                        //            break;
+                        //        case "andy bernard":
+                        //            break;
+                        //        case "toby flenderson":
+                        //            break;
+                        //    }
+                        //}
 
                         break;
                     case "2":
                     case "see student gpas":
                         Console.WriteLine("GPA: \n");
+
+                        //Display the list of students and their respective gpas
+                        foreach (KeyValuePair<string, double> kvp in studentDict)
+                        {
+                            Console.WriteLine("{0} - {1}", kvp.Key,kvp.Value);
+                        }
                         break;
                     case "3":
                     case "edit student grades":
@@ -62,9 +88,11 @@ namespace NsonsaKisala_Exercise3
                 }
             }
 
+          
+
         }
         // Create Menu
-        public static void Menu()
+        public static void PrintMenu()
         {
             Console.WriteLine("--------------------------------------");
             Console.WriteLine("1 - See List of students \n" +
@@ -73,5 +101,6 @@ namespace NsonsaKisala_Exercise3
                 "4 - Exit");
             Console.WriteLine("--------------------------------------");
         }
+
     }
 }
